@@ -1,0 +1,2343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#0d0c0b">
+<title>古装电视剧里的谁适合当你的伴侣？</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+}
+
+html,body{
+    margin:0;
+    padding:0;
+    min-height:100%;
+    background:#0b0a09;
+    color:#eee8de;
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+}
+
+body{
+    overflow-x:hidden;
+}
+
+button,input{
+    font:inherit;
+}
+
+button{
+    outline:none;
+}
+
+.hidden{
+    display:none!important;
+}
+
+.page{
+    min-height:100vh;
+    position:relative;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at 12% 8%,rgba(190,157,102,.13),transparent 30%),
+        radial-gradient(circle at 90% 88%,rgba(116,74,61,.11),transparent 35%),
+        linear-gradient(145deg,#0a0908 0%,#151210 48%,#090807 100%);
+}
+
+.page:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.25;
+    background-image:
+        linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+    background-size:36px 36px;
+}
+
+/* =========================
+   密码页
+========================= */
+
+.lock-page{
+    min-height:100vh;
+    min-height:100svh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:24px;
+    position:relative;
+    z-index:2;
+}
+
+.lock-box{
+    width:100%;
+    max-width:420px;
+    padding:42px 26px 38px;
+    text-align:center;
+    border:1px solid rgba(211,179,119,.2);
+    border-radius:28px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.055),
+            rgba(255,255,255,.015)
+        );
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.55),
+        inset 0 1px rgba(255,255,255,.06);
+    backdrop-filter:blur(20px);
+}
+
+.lock-mark{
+    width:64px;
+    height:64px;
+    border-radius:50%;
+    margin:0 auto 22px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#d9bb83;
+    font-size:25px;
+    border:1px solid rgba(217,187,131,.4);
+    box-shadow:0 0 40px rgba(205,163,91,.06);
+}
+
+.lock-en{
+    color:#9c896c;
+    font-size:10px;
+    letter-spacing:4px;
+    margin-bottom:15px;
+}
+
+.lock-title{
+    font-family:"STSong","Songti SC","SimSun",serif;
+    font-size:26px;
+    line-height:1.5;
+    letter-spacing:1px;
+    margin-bottom:10px;
+}
+
+.lock-desc{
+    color:#89837b;
+    font-size:13px;
+    line-height:1.9;
+    margin-bottom:27px;
+}
+
+.code-input{
+    display:block;
+    width:100%;
+    height:54px;
+    border:1px solid rgba(215,183,122,.2);
+    border-radius:15px;
+    background:rgba(0,0,0,.25);
+    color:#eee8df;
+    text-align:center;
+    font-size:19px;
+    letter-spacing:9px;
+    outline:none;
+    transition:.25s;
+}
+
+.code-input:focus{
+    border-color:rgba(215,183,122,.7);
+    box-shadow:0 0 0 3px rgba(215,183,122,.06);
+}
+
+.enter-btn{
+    width:100%;
+    height:54px;
+    margin-top:13px;
+    border-radius:15px;
+    border:0;
+    color:#17120d;
+    background:linear-gradient(135deg,#dec28c,#ad8850);
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:3px;
+    box-shadow:0 14px 35px rgba(175,132,66,.15);
+    cursor:pointer;
+}
+
+.error{
+    height:20px;
+    padding-top:10px;
+    color:#bd817a;
+    font-size:11px;
+}
+
+/* =========================
+   首页
+========================= */
+
+.container{
+    width:min(100%,620px);
+    margin:auto;
+    padding:0 20px;
+    position:relative;
+    z-index:2;
+}
+
+.home{
+    min-height:100vh;
+    padding-top:28px;
+    padding-bottom:45px;
+}
+
+.hero{
+    padding:30px 2px 24px;
+}
+
+.hero-en{
+    color:#a38c6c;
+    font-size:10px;
+    letter-spacing:5px;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    margin:0;
+    font-family:"STSong","Songti SC","SimSun",serif;
+    font-size:34px;
+    line-height:1.45;
+    font-weight:500;
+    letter-spacing:1px;
+}
+
+.hero h1 em{
+    color:#d5b67d;
+    font-style:normal;
+}
+
+.hero-text{
+    margin-top:18px;
+    color:#969087;
+    font-size:13px;
+    line-height:2;
+}
+
+.intro-card{
+    margin-top:15px;
+    padding:23px;
+    border-radius:23px;
+    border:1px solid rgba(214,182,123,.14);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.05),
+            rgba(255,255,255,.018)
+        );
+    box-shadow:0 25px 80px rgba(0,0,0,.3);
+}
+
+.intro-title{
+    color:#cdb78f;
+    font-size:12px;
+    letter-spacing:2px;
+    margin-bottom:13px;
+}
+
+.intro-text{
+    color:#918a81;
+    font-size:13px;
+    line-height:1.9;
+}
+
+.feature-list{
+    display:flex;
+    gap:9px;
+    margin:22px 0;
+}
+
+.feature{
+    flex:1;
+    padding:13px 5px;
+    text-align:center;
+    border-radius:14px;
+    background:rgba(255,255,255,.032);
+}
+
+.feature strong{
+    display:block;
+    color:#d3b984;
+    font-family:Georgia,serif;
+    font-size:19px;
+    font-weight:400;
+    margin-bottom:5px;
+}
+
+.feature span{
+    color:#77716a;
+    font-size:10px;
+}
+
+.start-btn{
+    width:100%;
+    height:54px;
+    border:0;
+    border-radius:15px;
+    background:linear-gradient(135deg,#dec18a,#a9804a);
+    color:#17120d;
+    font-weight:600;
+    letter-spacing:3px;
+    cursor:pointer;
+}
+
+/* =========================
+   测试页
+========================= */
+
+.quiz-page{
+    min-height:100vh;
+    position:relative;
+    z-index:2;
+}
+
+.quiz-container{
+    width:min(100%,620px);
+    margin:auto;
+    padding:0 20px 40px;
+}
+
+.quiz-header{
+    position:sticky;
+    top:0;
+    z-index:20;
+    padding:20px 0 18px;
+    background:
+        linear-gradient(
+            rgba(11,10,9,.97),
+            rgba(11,10,9,.88),
+            rgba(11,10,9,0)
+        );
+    backdrop-filter:blur(10px);
+}
+
+.quiz-meta{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:12px;
+    color:#77716a;
+    font-size:10px;
+    letter-spacing:1px;
+}
+
+.progress{
+    width:100%;
+    height:2px;
+    border-radius:10px;
+    overflow:hidden;
+    background:rgba(255,255,255,.07);
+}
+
+.progress-bar{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg,#a7804d,#e1c58d);
+    transition:.35s ease;
+}
+
+.question-box{
+    padding-top:25px;
+}
+
+.question-label{
+    color:#ad8b59;
+    font-size:10px;
+    letter-spacing:4px;
+    margin-bottom:14px;
+}
+
+.question-title{
+    margin:0 0 25px;
+    font-family:"STSong","Songti SC","SimSun",serif;
+    font-weight:500;
+    font-size:24px;
+    line-height:1.55;
+    color:#eee7dc;
+}
+
+.options{
+    display:flex;
+    flex-direction:column;
+    gap:11px;
+}
+
+.option{
+    width:100%;
+    min-height:67px;
+    padding:16px 17px;
+    text-align:left;
+    color:#d4cec4;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.018)
+        );
+    border:1px solid rgba(255,255,255,.085);
+    border-radius:17px;
+    cursor:pointer;
+    transition:.2s ease;
+    position:relative;
+    overflow:hidden;
+}
+
+.option:active{
+    transform:scale(.985);
+}
+
+.option.selected{
+    border-color:rgba(217,184,123,.72);
+    background:
+        linear-gradient(
+            120deg,
+            rgba(213,179,113,.15),
+            rgba(255,255,255,.025)
+        );
+    box-shadow:0 8px 30px rgba(0,0,0,.15);
+}
+
+.option-letter{
+    display:inline-flex;
+    width:26px;
+    height:26px;
+    align-items:center;
+    justify-content:center;
+    margin-right:9px;
+    border:1px solid rgba(207,172,108,.3);
+    border-radius:50%;
+    color:#bb9963;
+    font-size:10px;
+    vertical-align:middle;
+}
+
+.option-text{
+    font-size:13px;
+    line-height:1.75;
+    vertical-align:middle;
+}
+
+/* =========================
+   结果页
+========================= */
+
+.result-page{
+    min-height:100vh;
+    position:relative;
+    z-index:3;
+    background:
+        radial-gradient(
+            circle at 82% 8%,
+            var(--glow),
+            transparent 34%
+        ),
+        radial-gradient(
+            circle at 8% 92%,
+            rgba(255,255,255,.025),
+            transparent 30%
+        ),
+        linear-gradient(145deg,#0a0908,#151210 48%,#090807);
+}
+
+.result-container{
+    width:min(100%,620px);
+    margin:auto;
+    padding:22px 20px 50px;
+}
+
+.result-heading{
+    text-align:center;
+    padding:18px 0 25px;
+}
+
+.result-small{
+    color:var(--accent);
+    font-size:9px;
+    letter-spacing:5px;
+    margin-bottom:14px;
+}
+
+.result-intro{
+    color:#8f8981;
+    font-family:"STSong","Songti SC","SimSun",serif;
+    font-size:14px;
+    letter-spacing:2px;
+}
+
+.result-name{
+    margin:13px 0 7px;
+    color:#f0e7d8;
+    font-family:"STSong","Songti SC","SimSun",serif;
+    font-weight:500;
+    font-size:42px;
+    letter-spacing:5px;
+}
+
+.result-source{
+    color:var(--accent);
+    font-size:12px;
+    letter-spacing:1px;
+}
+
+.result-card{
+    position:relative;
+    overflow:hidden;
+    border:1px solid var(--border);
+    border-radius:27px;
+    padding:27px 22px 25px;
+    background:
+        linear-gradient(
+            145deg,
+            var(--soft),
+            rgba(255,255,255,.02)
+        );
+    box-shadow:
+        0 30px 90px rgba(0,0,0,.45),
+        inset 0 1px rgba(255,255,255,.055);
+}
+
+.result-card:before{
+    content:"";
+    position:absolute;
+    width:190px;
+    height:190px;
+    right:-90px;
+    top:-90px;
+    border-radius:50%;
+    border:1px solid var(--border);
+}
+
+.result-card:after{
+    content:"";
+    position:absolute;
+    width:120px;
+    height:120px;
+    right:-50px;
+    top:-50px;
+    border-radius:50%;
+    border:1px solid var(--border);
+}
+
+.quote{
+    position:relative;
+    z-index:2;
+    margin:0 0 23px;
+    color:#e8ded0;
+    font-family:"STSong","Songti SC","SimSun",serif;
+    font-size:18px;
+    line-height:1.9;
+}
+
+.tags{
+    position:relative;
+    z-index:2;
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+    margin-bottom:24px;
+}
+
+.tag{
+    padding:6px 11px;
+    border-radius:20px;
+    color:var(--accent);
+    background:rgba(0,0,0,.12);
+    border:1px solid var(--border);
+    font-size:10px;
+}
+
+.section{
+    position:relative;
+    z-index:2;
+    margin-top:24px;
+}
+
+.section-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:10px;
+    color:#d1bea0;
+    font-size:12px;
+    letter-spacing:2px;
+}
+
+.section-title:after{
+    content:"";
+    height:1px;
+    flex:1;
+    background:linear-gradient(
+        90deg,
+        var(--border),
+        transparent
+    );
+}
+
+.section p{
+    margin:0;
+    color:#aaa29a;
+    font-size:13px;
+    line-height:2.05;
+}
+
+.highlight{
+    color:#d8c09a;
+}
+
+.dimension-box{
+    position:relative;
+    z-index:2;
+    margin-top:27px;
+    padding:17px;
+    border-radius:17px;
+    background:rgba(0,0,0,.16);
+    border:1px solid rgba(255,255,255,.04);
+}
+
+.dimension-title{
+    color:#928a80;
+    font-size:10px;
+    letter-spacing:2px;
+    margin-bottom:14px;
+}
+
+.dimension{
+    display:flex;
+    align-items:center;
+    margin:9px 0;
+}
+
+.dimension-name{
+    width:48px;
+    color:#807a73;
+    font-size:10px;
+}
+
+.dimension-track{
+    flex:1;
+    height:4px;
+    overflow:hidden;
+    border-radius:20px;
+    background:rgba(255,255,255,.07);
+}
+
+.dimension-fill{
+    width:0;
+    height:100%;
+    border-radius:20px;
+    background:var(--accent);
+    transition:1.1s ease;
+}
+
+.result-footer{
+    text-align:center;
+    padding-top:22px;
+}
+
+.restart-btn{
+    width:100%;
+    height:53px;
+    border-radius:15px;
+    color:#d2c0a0;
+    background:rgba(255,255,255,.035);
+    border:1px solid var(--border);
+    cursor:pointer;
+}
+
+.footer-note{
+    margin-top:14px;
+    color:#5e5a55;
+    font-size:9px;
+    letter-spacing:1px;
+}
+
+@media(max-width:380px){
+
+    .hero h1{
+        font-size:30px;
+    }
+
+    .question-title{
+        font-size:21px;
+    }
+
+    .result-name{
+        font-size:36px;
+    }
+
+    .result-card{
+        padding:24px 18px;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+<div class="page">
+
+<!-- ======================================================
+     密码页
+====================================================== -->
+
+<section id="lockPage" class="lock-page">
+
+    <div class="lock-box">
+
+        <div class="lock-mark">✦</div>
+
+        <div class="lock-en">
+            ANCIENT TV CHARACTER TEST
+        </div>
+
+        <div class="lock-title">
+            古装电视剧里的谁<br>
+            适合当你的伴侣？
+        </div>
+
+        <div class="lock-desc">
+            输入提取码，开启你的角色匹配。
+        </div>
+
+        <input
+            id="codeInput"
+            class="code-input"
+            type="tel"
+            inputmode="numeric"
+            maxlength="4"
+            placeholder="••••"
+            autocomplete="off"
+        >
+
+        <button
+            class="enter-btn"
+            onclick="checkCode()"
+        >
+            进入测试
+        </button>
+
+        <div id="error" class="error"></div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     首页
+====================================================== -->
+
+<section id="homePage" class="container home hidden">
+
+    <div class="hero">
+
+        <div class="hero-en">
+            LOVE · CHARACTER · STORY
+        </div>
+
+        <h1>
+            古装电视剧里的谁<br>
+            <em>适合当你的伴侣？</em>
+        </h1>
+
+        <div class="hero-text">
+            你喜欢的到底是哪一种人？<br>
+            是强势偏爱，还是温柔守护；是少年赤诚，还是成熟克制。
+            <br>
+            20道情境选择，看看哪一种影视男主最贴近你的情感偏好。
+        </div>
+
+    </div>
+
+
+    <div class="intro-card">
+
+        <div class="intro-title">
+            先别想“标准答案”
+        </div>
+
+        <div class="intro-text">
+            每一道题都没有正确答案。你只需要选择那个第一眼最想选的选项。
+            有时候，你真正喜欢的并不是某一个固定的人设，
+            而是某一种被对待的方式。
+        </div>
+
+        <div class="feature-list">
+
+            <div class="feature">
+                <strong>20</strong>
+                <span>情境选择</span>
+            </div>
+
+
+            <div class="feature">
+                <strong>∞</strong>
+                <span>不同组合</span>
+            </div>
+
+        </div>
+
+        <button
+            class="start-btn"
+            onclick="startTest()"
+        >
+            开始选择
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     测试页
+====================================================== -->
+
+<section id="quizPage" class="quiz-page hidden">
+
+    <div class="quiz-container">
+
+        <div class="quiz-header">
+
+            <div class="quiz-meta">
+
+                <span id="progressText">
+                    01 / 20
+                </span>
+
+                <span>
+                    FOLLOW YOUR FIRST INSTINCT
+                </span>
+
+            </div>
+
+            <div class="progress">
+
+                <div
+                    id="progressBar"
+                    class="progress-bar"
+                ></div>
+
+            </div>
+
+        </div>
+
+
+        <div class="question-box">
+
+            <div
+                id="questionLabel"
+                class="question-label"
+            >
+                QUESTION 01
+            </div>
+
+            <h2
+                id="questionTitle"
+                class="question-title"
+            ></h2>
+
+            <div
+                id="options"
+                class="options"
+            ></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     结果页
+====================================================== -->
+
+<section id="resultPage" class="result-page hidden">
+
+    <div class="result-container">
+
+        <div class="result-heading">
+
+            <div class="result-small">
+                YOUR CHARACTER MATCH
+            </div>
+
+            <div class="result-intro">
+                如果把他放进你的恋爱故事
+            </div>
+
+            <div
+                id="resultName"
+                class="result-name"
+            ></div>
+
+            <div
+                id="resultSource"
+                class="result-source"
+            ></div>
+
+        </div>
+
+
+        <div
+            id="resultCard"
+            class="result-card"
+        >
+
+            <div
+                id="resultQuote"
+                class="quote"
+            ></div>
+
+            <div
+                id="resultTags"
+                class="tags"
+            ></div>
+
+
+            <div class="section">
+
+                <div class="section-title">
+                    为什么会是他
+                </div>
+
+                <p id="resultWhy"></p>
+
+            </div>
+
+
+            <div class="section">
+
+                <div class="section-title">
+                    你们会怎么相处
+                </div>
+
+                <p id="resultLove"></p>
+
+            </div>
+
+
+            <div class="section">
+
+                <div class="section-title">
+                    他会怎么爱你
+                </div>
+
+                <p id="resultCare"></p>
+
+            </div>
+
+
+            <div class="section">
+
+                <div class="section-title">
+                    最容易让你心动的瞬间
+                </div>
+
+                <p id="resultMoment"></p>
+
+            </div>
+
+
+            <div class="section">
+
+                <div class="section-title">
+                    如果真的和他谈恋爱
+                </div>
+
+                <p id="resultEnding"></p>
+
+            </div>
+
+
+            <div class="dimension-box">
+
+                <div class="dimension-title">
+                    YOUR LOVE PREFERENCE
+                </div>
+
+
+                <div class="dimension">
+
+                    <span class="dimension-name">
+                        安全感
+                    </span>
+
+                    <div class="dimension-track">
+                        <div
+                            id="bar1"
+                            class="dimension-fill"
+                        ></div>
+                    </div>
+
+                </div>
+
+
+                <div class="dimension">
+
+                    <span class="dimension-name">
+                        心动感
+                    </span>
+
+                    <div class="dimension-track">
+                        <div
+                            id="bar2"
+                            class="dimension-fill"
+                        ></div>
+                    </div>
+
+                </div>
+
+
+                <div class="dimension">
+
+                    <span class="dimension-name">
+                        陪伴感
+                    </span>
+
+                    <div class="dimension-track">
+                        <div
+                            id="bar3"
+                            class="dimension-fill"
+                        ></div>
+                    </div>
+
+                </div>
+
+
+                <div class="dimension">
+
+                    <span class="dimension-name">
+                        偏爱感
+                    </span>
+
+                    <div class="dimension-track">
+                        <div
+                            id="bar4"
+                            class="dimension-fill"
+                        ></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="result-footer">
+
+            <button
+                class="restart-btn"
+                onclick="restartTest()"
+            >
+                再选一次
+            </button>
+
+            <div class="footer-note">
+                YOUR STORY IS DIFFERENT EVERY TIME
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</div>
+<script>
+
+/* =========================================================
+   提取码
+========================================================= */
+
+const ACCESS_CODE = "5567";
+
+
+/* =========================================================
+   维度
+   安全 / 心动 / 陪伴 / 偏爱 / 克制 / 张力
+========================================================= */
+
+const DIMENSIONS = 6;
+
+
+/* =========================================================
+   30位角色
+========================================================= */
+
+const characters = [
+
+{
+id:0,
+name:"东方青苍",
+source:"《苍兰诀》",
+color:"#b69360",
+vector:[8,10,7,10,4,10],
+tags:["强大霸气","极致偏爱","反差苏感"],
+quote:"他站在所有人都不敢靠近的位置，却偏偏愿意为了你一次次破例。",
+why:"你容易被强者型伴侣吸引。你在意一个人有没有足够的能力承担事情，也很吃“对所有人冷淡，唯独对你特别”的反差。",
+love:"你们的相处会有很强的反差感。外人眼里的他强势冷淡，而你知道他会因为你的一句话改变原本的决定。",
+care:"他不太需要用很多话证明自己。真正遇到事情时，他会先挡在你前面，再问你有没有害怕。",
+moment:"所有人都以为他不会低头，可他在人群散尽以后，只对你放轻声音。",
+ending:"高浓度偏爱型关系。你会非常清楚地感受到：他可以不在乎所有人的看法，却很在乎你的感受。"
+},
+
+{
+id:1,
+name:"周生辰",
+source:"《周生如故》",
+color:"#a68c70",
+vector:[10,5,10,7,10,4],
+tags:["温润隐忍","责任感","成熟克制"],
+quote:"他不是最会说情话的人，却可能是那个会认真替你把人生放在心上的人。",
+why:"你很看重责任感和稳定性。比起一时的浪漫，你更容易被一个有原则、有担当、遇事可靠的人吸引。",
+love:"你们之间会有一种很安静的默契。你不需要时时解释自己，因为他会认真听，也会给你足够的空间。",
+care:"他的照顾往往发生在细节里。提前安排、默默记住、关键时刻出现，是他表达在乎的方式。",
+moment:"你只是随口说了一句累，他没有追问太多，只是安静替你把事情安排妥当。",
+ending:"成熟、克制、深厚。是一种越相处越让人安心的关系。"
+},
+
+{
+id:2,
+name:"李莲花",
+source:"《莲花楼》",
+color:"#9c9b80",
+vector:[9,6,10,6,9,6],
+tags:["温柔通透","松弛感","破碎感"],
+quote:"看过世事起落之后，他依然愿意温柔地对待你。",
+why:"你容易被有阅历、有故事，却没有因此变得尖锐的人吸引。你喜欢的是一种看透之后依然温柔的成熟。",
+love:"和他相处不会有太强的压迫感。你可以撒娇，可以沉默，也可以说一些毫无意义的小事。",
+care:"他会把照顾藏进日常。你不说，他可能也已经注意到了。",
+moment:"他明明自己也有很多难过，却还是先问你今天是不是不开心。",
+ending:"温柔、通透、带一点淡淡的破碎感。越了解越舍不得。"
+},
+
+{
+id:3,
+name:"相柳",
+source:"《长相思》",
+color:"#9a8190",
+vector:[7,9,10,10,10,9],
+tags:["外冷内热","隐忍深情","默默守护"],
+quote:"他不会轻易把爱说出口，却会在你看不见的地方替你挡掉风雨。",
+why:"你非常容易被克制型深情打动。你不一定需要一个人天天说情话，但很在意他是否愿意在关键时刻站在你身边。",
+love:"你们的感情会藏着很多没有说出口的情绪。一个眼神、一句嘴硬的话，都可能藏着另一层意思。",
+care:"他会把保护做得很隐蔽。你甚至可能很久以后才发现，那些事情原来都是他替你处理的。",
+moment:"你回头时，他已经走远，可真正危险的时候，第一个出现的人还是他。",
+ending:"克制、深情、带着一点悲壮感。属于很容易让人反复回味的关系。"
+},
+
+{
+id:4,
+name:"澹台烬",
+source:"《长月烬明》",
+color:"#8f7180",
+vector:[5,10,7,10,2,10],
+tags:["疯感","专一","浓烈"],
+quote:"如果你喜欢浓烈到无法忽视的感情，他会像一场席卷而来的风暴。",
+why:"你的情感偏好里有很强的浓度需求。比起平淡，你更容易被爱得深、情绪强、态度明确的人吸引。",
+love:"你们很难成为完全平淡的情侣。开心时很甜，矛盾时也会有很强的情绪张力。",
+care:"他的表达方式不一定温柔，却有很明显的保护欲和偏爱感。",
+moment:"那个面对所有人都冷漠的人，却只愿意在你面前承认自己的脆弱。",
+ending:"浓烈、复杂、戏剧感强。适合喜欢高情绪浓度的人。"
+},
+
+{
+id:5,
+name:"谢危",
+source:"《宁安如梦》",
+color:"#957d69",
+vector:[7,9,7,10,9,10],
+tags:["腹黑隐忍","深沉谋略","克制偏执"],
+quote:"他不会让你轻易看透，却会把真正的在乎藏在每一个细节里。",
+why:"你容易被聪明、深沉、有掌控力的人吸引。你不太喜欢一眼就能看懂的性格，反而享受慢慢了解一个人的过程。",
+love:"你们之间会有试探，也会有拉扯。他越克制，越容易让你想知道他的真实想法。",
+care:"他习惯提前替你考虑很多步，所以很多危险还没发生，你就已经被保护起来了。",
+moment:"你只是随口说了一句话，他却记了很久，并真的替你做到了。",
+ending:"智性、危险、克制又有吸引力。属于越了解越容易沉进去的类型。"
+},
+
+{
+id:6,
+name:"禹司凤",
+source:"《琉璃》",
+color:"#9e9b82",
+vector:[10,7,10,9,9,5],
+tags:["温柔纯爱","长情","隐忍付出"],
+quote:"如果你想要一个愿意长久陪着你的人，他会给你很强的安全感。",
+why:"你很看重长期稳定的情感投入。你希望一个人不是一时兴起，而是真的愿意陪你走很久。",
+love:"你们的关系会比较温柔。他愿意倾听，也愿意为了关系本身做出调整。",
+care:"他的耐心很强。面对你的敏感和情绪，他更愿意理解，而不是马上抽身。",
+moment:"你回头的时候，发现他依然在那里。",
+ending:"温柔、稳定、长情。非常适合需要持续陪伴的人。"
+},
+
+{
+id:7,
+name:"宫子羽",
+source:"《云之羽》",
+color:"#a78f73",
+vector:[8,10,8,10,5,8],
+tags:["纯粹赤诚","少年感","热烈直白"],
+quote:"喜欢一个人以后，他会毫不犹豫地站到你身边。",
+why:"你喜欢真诚直接的人。你不太喜欢复杂的心理博弈，更希望对方喜欢你这件事清清楚楚。",
+love:"你们相处会很有少年感。一起做一些小事，都可能变成很甜的记忆。",
+care:"你难过的时候，他第一反应通常不是分析，而是先想办法让你开心。",
+moment:"你只是随口说了一句想吃什么，他第二天真的带你去了。",
+ending:"明亮、热烈、纯粹。像一段让人重新变得年轻的恋爱。"
+},
+
+{
+id:8,
+name:"涂山璟",
+source:"《长相思》",
+color:"#829982",
+vector:[10,6,10,9,9,4],
+tags:["温润治愈","包容","耐心等待"],
+quote:"你不用变得完美，他也愿意耐心听完你的每一种情绪。",
+why:"你非常看重情绪安全。你希望伴侣能够接住自己的敏感，而不是让你不断猜测自己是否被在乎。",
+love:"你可以在他面前慢慢做自己。不开心可以说，累了可以撒娇。",
+care:"他会给你空间，却不会在你真正需要的时候缺席。",
+moment:"你说自己没事，他却看出了你其实不开心。",
+ending:"温柔、包容、低攻击性。像一段让人慢慢恢复元气的关系。"
+},
+
+{
+id:9,
+name:"陆绎",
+source:"《锦衣之下》",
+color:"#8d8277",
+vector:[8,8,8,10,8,8],
+tags:["冷峻果决","慢热","极致护妻"],
+quote:"他不太会说漂亮话，但会直接站到你这一边。",
+why:"你喜欢有行动力的人。你更相信实际行动，而不是反复听到漂亮的承诺。",
+love:"前期可能偏冷淡，但真正建立信任之后，反差会越来越明显。",
+care:"他的关心非常实际。遇到问题，他更习惯直接解决，而不是只安慰你。",
+moment:"他一脸冷淡地问你怎么又惹麻烦，却已经把所有麻烦处理好了。",
+ending:"冷感外壳＋强烈偏爱。属于越相处越甜的关系。"
+},
+
+{
+id:10,
+name:"慕声",
+source:"《永夜星河》",
+color:"#817e92",
+vector:[8,9,9,10,7,9],
+tags:["嘴硬心软","半妖少年","护妻小狗"],
+quote:"嘴上嫌你麻烦，身体却比任何人都诚实。",
+why:"你很吃“嘴硬心软”的反差。你希望对方有自己的个性，但在你面前又会露出非常柔软的一面。",
+love:"你们会有很多轻松的小互动。他可能嘴上嫌弃，实际上什么都记得。",
+care:"保护欲会非常明显。只要涉及你的安全，他很容易失去平时的冷静。",
+moment:"你一句话让他嘴上不耐烦，却偷偷开心了很久。",
+ending:"甜、傲娇、少年感强。适合喜欢轻松恋爱氛围的人。"
+},
+
+{
+id:11,
+name:"谢征",
+source:"《逐玉》",
+color:"#837d79",
+vector:[8,8,8,9,9,9],
+tags:["战损感","谋士","暗中守护"],
+quote:"他的温柔不会摆在明面上，而是在你看不到的地方一层层铺开。",
+why:"你容易被成熟、冷静、有脑子的人吸引，同时又会被隐藏在强硬外表下的柔软打动。",
+love:"你们会有一种成年人之间的默契。不需要说很多话，却知道彼此的意思。",
+care:"他习惯把问题提前处理掉，不会让你承担太多不必要的麻烦。",
+moment:"你以为自己一个人在面对困境，后来才发现他早就替你留好了退路。",
+ending:"沉稳、克制、带有战损感的深情。"
+},
+
+{
+id:12,
+name:"齐旻",
+source:"《逐玉》",
+color:"#9a7d91",
+vector:[4,10,8,10,2,10],
+tags:["白发病娇","偏执深情","强烈占有欲"],
+quote:"他的感情从来不会浅尝辄止，一旦认定，就很难再放手。",
+why:"你对强烈的人格张力比较敏感。你容易被一个情绪浓度很高、存在感极强的人吸引。",
+love:"你们的关系会非常有戏剧感。他的情绪和占有欲都很直接。",
+care:"他的保护方式带着明显的强势感。他很难对你的事情真正置身事外。",
+moment:"那个看似不可控的人，在你面前却会出现只属于你的柔软。",
+ending:"危险感、张力和深情同时存在。是一种非常高浓度的关系。"
+},
+
+{
+id:13,
+name:"李怀安",
+source:"《逐玉》",
+color:"#9b958e",
+vector:[9,5,9,7,10,5],
+tags:["清冷白衣","温柔素雅","遗憾守候"],
+quote:"他不会打扰你的选择，却会在你回头的时候依然站在那里。",
+why:"你容易被温柔而克制的人吸引。你喜欢有分寸的深情，不希望爱情成为一种压力。",
+love:"你们之间会很安静。很多感情不会直接说出来，而是藏在陪伴里。",
+care:"他会尊重你的决定，即使自己的心意没有得到回应，也不会强迫你。",
+moment:"雪落下来时，他一个人站在那里，却依然替你留着那盏灯。",
+ending:"清冷、温柔、带有遗憾感。适合喜欢细腻情绪的人。"
+},
+
+{
+id:14,
+name:"夜华",
+source:"《三生三世十里桃花》",
+color:"#817d82",
+vector:[9,8,9,9,9,7],
+tags:["沉稳深情","少年老成","厚重执着"],
+quote:"他把很多情绪藏得很深，却会为了你承担那些别人无法理解的重量。",
+why:"你容易被成熟稳重、有责任感的人吸引。你喜欢一个人有自己的原则，同时又有很深的感情。",
+love:"你们的关系会偏深沉。很多事情不需要说出口，对方就会理解。",
+care:"他的保护感很强，尤其是在真正重要的事情上不会轻易退让。",
+moment:"你终于看见那个一向冷静的人，因为你而失去片刻克制。",
+ending:"厚重、深情、克制。属于越往后越能感受到分量的关系。"
+},
+
+{
+id:15,
+name:"长珩",
+source:"《苍兰诀》",
+color:"#8797a3",
+vector:[10,7,9,7,10,3],
+tags:["温柔守礼","清醒克制","白月光感"],
+quote:"他会尊重你的选择，即使自己的心里并不轻松。",
+why:"你喜欢有分寸、温柔、清醒的人。比起强势占有，你更容易被尊重和体面打动。",
+love:"你们会相处得很舒服。即使产生矛盾，也更愿意沟通，而不是互相消耗。",
+care:"他会在意你的感受，也不会把自己的情绪变成你的负担。",
+moment:"明明自己也舍不得，却还是选择尊重你的决定。",
+ending:"温柔、清醒、体面。像一段很难忘的白月光式关系。"
+},
+
+{
+id:16,
+name:"顾九思",
+source:"《长风渡》",
+color:"#a68c68",
+vector:[8,8,10,9,6,7],
+tags:["少年成长","重情重义","可靠丈夫"],
+quote:"他会从那个张扬的少年，慢慢成长成真正可以托付日常的人。",
+why:"你喜欢成长型伴侣。你不要求一个人从一开始就完美，更在意他有没有改变和承担的能力。",
+love:"你们会有很多轻松热闹的日常，也会一起经历真正需要承担责任的时刻。",
+care:"他会越来越懂得如何照顾你，而不是只顾着表达自己的情绪。",
+moment:"那个曾经有些莽撞的人，终于学会先考虑你的感受。",
+ending:"有烟火气、有成长，也有很强的陪伴感。"
+},
+
+{
+id:17,
+name:"韩烁",
+source:"《传闻中的陈芊芊》",
+color:"#9e806b",
+vector:[7,10,9,10,5,9],
+tags:["腹黑狡黠","热烈偏爱","反差"],
+quote:"原本带着算计入局的人，最后却把真心输给了你。",
+why:"你喜欢聪明、有趣又有强烈偏爱的人。你会被一个人从防备到彻底沦陷的过程吸引。",
+love:"你们的关系会很有趣。斗嘴、试探、吃醋和偏爱会同时存在。",
+care:"他会想办法把你照顾好，但嘴上可能还要装作若无其事。",
+moment:"明明计划周全，却因为你一句话彻底改变了安排。",
+ending:"甜、聪明、带一点斗智斗勇。很有戏剧感。"
+},
+
+{
+id:18,
+name:"谢允",
+source:"《有翡》",
+color:"#8c9a91",
+vector:[8,8,9,9,8,8],
+tags:["潇洒通透","幽默温柔","默默守护"],
+quote:"他看起来什么都不在乎，其实最舍不得你受一点委屈。",
+why:"你喜欢有幽默感又有深度的人。你希望恋爱轻松，却又希望对方在真正重要的时候足够可靠。",
+love:"你们会有很多笑点。即使面对麻烦，他也会尽量让你不要害怕。",
+care:"他会用轻松的方式掩盖自己的疲惫，却不会把危险留给你。",
+moment:"他明明伤得很重，却还笑着问你有没有被吓到。",
+ending:"潇洒、温柔、带一点隐藏的心酸。"
+},
+
+{
+id:19,
+name:"白子画",
+source:"《花千骨》",
+color:"#9b9da2",
+vector:[9,6,8,7,10,6],
+tags:["清冷绝尘","克制隐忍","责任感"],
+quote:"他的感情永远被克制包裹，越是深，越不敢轻易说出口。",
+why:"你容易被清冷、克制、有原则的人吸引。你会被那种情绪很深，却始终努力维持分寸的人打动。",
+love:"你们的感情不会特别直接。很多时候，需要时间才能看懂彼此真正的情绪。",
+care:"他习惯把责任放在前面，即使自己很难受，也不愿轻易让你承担。",
+moment:"那个始终冷静的人，终于因为你出现一瞬间的失控。",
+ending:"清冷、克制、深沉。情绪张力来自那些没有说出口的话。"
+},
+
+{
+id:20,
+name:"李承鄞",
+source:"《东宫》",
+color:"#9b6d68",
+vector:[5,10,6,10,3,10],
+tags:["权谋帝王","爱恨极端","疯感"],
+quote:"他的感情从来不是浅浅经过，而是会与野心、选择和人生纠缠在一起。",
+why:"你容易被极具存在感的人吸引。你喜欢复杂人格，也容易被一个人在感情中的极端表现抓住注意力。",
+love:"你们的关系会有很强的冲突与拉扯。情绪不会轻易停留在表面。",
+care:"他的保护方式很强势，很多时候会直接替你做决定。",
+moment:"那个永远把利益放在第一位的人，却因为你做出完全不同的选择。",
+ending:"强烈、复杂、戏剧感很重。适合喜欢高张力故事的人。"
+},
+
+{
+id:21,
+name:"凌不疑",
+source:"《星汉灿烂》",
+color:"#837b7c",
+vector:[8,9,9,10,7,10],
+tags:["少年将军","偏执深情","热烈守护"],
+quote:"他认定一个人之后，就会用尽所有力量把她护在自己的世界里。",
+why:"你喜欢有目标、有行动力，同时又拥有强烈保护欲的人。",
+love:"你们的关系会有很强的安全感与热烈感。他的态度通常不会模糊。",
+care:"他会把危险挡在前面，甚至愿意为你承担非常大的代价。",
+moment:"所有人都在劝他退一步，只有涉及你的事情，他一步都不肯让。",
+ending:"热烈、坚定、带有少年将军式的保护感。"
+},
+
+{
+id:22,
+name:"纪伯宰",
+source:"《入青云》",
+color:"#987b6b",
+vector:[6,10,8,9,6,10],
+tags:["浪荡不羁","真假试探","双向拉扯"],
+quote:"他看起来最会玩，却偏偏最渴望有人能真正看懂他。",
+why:"你容易被有反差、有秘密的人吸引。你喜欢慢慢拆开一个人的过程，而不是一开始就得到所有答案。",
+love:"你们之间会有很多试探和博弈。表面互不在乎，实际都在观察对方。",
+care:"当他真正信任你以后，反而会露出很少给别人看到的脆弱。",
+moment:"那个总是笑着的人，第一次认真问你：你到底会不会留下来。",
+ending:"拉扯感很强，甜里带着试探，越靠近越容易发现彼此的真实。"
+},
+
+{
+id:23,
+name:"燕洵",
+source:"《楚乔传》",
+color:"#9c765f",
+vector:[6,9,8,9,5,10],
+tags:["少年意气","浴火成长","深情破碎"],
+quote:"他曾经明亮耀眼，后来被现实磨出锋芒，而你可能最容易心疼那个变化后的他。",
+why:"你容易被成长型、经历过巨大转折的人吸引。你会在一个人的伤痕里看到他的深情。",
+love:"你们的关系会经历明显的变化。最初是明亮的少年感，后来则多了一份沉重。",
+care:"他会非常保护自己珍视的人，但也容易把压力藏得太深。",
+moment:"那个曾经爱笑的人，在所有人面前都很冷，却唯独看见你时眼神变软。",
+ending:"明亮与破碎并存。是一段很有成长感的关系。"
+},
+
+{
+id:24,
+name:"萧蘅",
+source:"《墨雨云间》",
+color:"#9d6e61",
+vector:[7,10,8,10,6,10],
+tags:["美艳桀骜","腹黑强势","坚定后盾"],
+quote:"他可以与你互相利用、互相试探，最后却愿意成为你最可靠的后盾。",
+why:"你喜欢聪明强势、能力突出的人。你希望伴侣不仅能谈恋爱，也能在现实世界里真正帮到你。",
+love:"你们会有明显的强强对话感。谁也不是完全依赖谁，而是彼此认可。",
+care:"他会尊重你的能力，同时在你需要的时候毫不犹豫站出来。",
+moment:"你准备一个人面对所有事情时，他只是轻描淡写地说：我来。",
+ending:"强强、默契、偏爱。很有并肩作战的感觉。"
+},
+
+{
+id:25,
+name:"魏劭",
+source:"《折腰》",
+color:"#8d7767",
+vector:[8,9,9,10,6,9],
+tags:["乱世雄主","口是心非","先婚后爱"],
+quote:"他嘴上说得比谁都硬，真正爱上以后却比谁都认真。",
+why:"你很容易被“硬汉外表＋柔软内里”的反差吸引。你喜欢一个人从防备到彻底动心的过程。",
+love:"你们的关系前期可能有很多摩擦，但越往后越能发现彼此已经成为生活里无法替代的人。",
+care:"他会嘴硬，但行动不会骗人。你需要的时候，他往往比任何人都快。",
+moment:"他明明还在生气，却已经把你最需要的东西放到手边。",
+ending:"先磨合、后沉溺。非常有先婚后爱式的甜感。"
+},
+
+{
+id:26,
+name:"尹峥",
+source:"《卿卿日常》",
+color:"#9a907d",
+vector:[10,6,10,9,9,3],
+tags:["温和聪慧","细水长流","尊重爱人"],
+quote:"他不会用轰轰烈烈证明爱情，而是把喜欢变成每天都在发生的小事。",
+why:"你真正需要的可能不是刺激，而是舒服。你希望有人尊重你的想法，也愿意与你一起经营普通日子。",
+love:"你们会很适合一起生活。一起吃饭、散步、商量事情，都可以成为关系的一部分。",
+care:"他会认真听你的想法，不会因为自己有主见就忽略你的感受。",
+moment:"你发现自己随口提过的小愿望，他已经悄悄放进了生活安排里。",
+ending:"稳定、温柔、烟火气很足。是一种很适合长期相处的甜。"
+},
+
+{
+id:27,
+name:"凤随歌",
+source:"《一笑随歌》",
+color:"#986d62",
+vector:[5,10,8,10,4,10],
+tags:["杀伐狠绝","宿敌感","只对一人破例"],
+quote:"他可以与整个世界周旋，却愿意为了你放下最锋利的一面。",
+why:"你对强强关系和高张力爱情非常敏感。你容易被“宿敌变爱人”的反差吸引。",
+love:"你们之间会有大量互相试探和较量，但也正因为彼此足够强，反而容易产生独特的默契。",
+care:"他的保护会非常直接。别人触碰你的底线，他很难真正保持旁观。",
+moment:"那个面对敌人毫不留情的人，在你面前却第一次收起锋芒。",
+ending:"强强、危险、浓烈。属于非常有戏剧张力的伴侣类型。"
+},
+
+{
+id:28,
+name:"润玉",
+source:"《香蜜沉沉烬如霜》",
+color:"#8c94a0",
+vector:[9,7,10,8,10,6],
+tags:["清冷孤寂","温柔深情","遗憾感"],
+quote:"他看起来平静温柔，却把太多没有说出口的情绪藏在心里。",
+why:"你很容易被安静、温柔、有故事的人吸引。你会特别注意一个人那些不轻易展示出来的情绪。",
+love:"你们的关系会偏细腻。你可能会慢慢发现，他比表面上表现出来的更加需要陪伴。",
+care:"他不会轻易打扰你，但会记得你说过的每一句话。",
+moment:"那个一直说没关系的人，终于在你面前承认自己其实也会难过。",
+ending:"温柔、安静、带一点遗憾。是一种容易让人心疼的深情。"
+},
+
+{
+id:29,
+name:"赵远舟",
+source:"《大梦归离》",
+color:"#9a8978",
+vector:[9,7,10,9,9,7],
+tags:["温润悲悯","牺牲型","破碎感"],
+quote:"他明明背负着沉重的东西，却还是愿意把最温柔的一面留给你。",
+why:"你容易被拥有强烈责任感、悲悯感和牺牲精神的人吸引。你会心疼那些习惯把自己放在最后的人。",
+love:"你们之间会有很深的情绪连接。你会想知道他真正累的时候是什么样子。",
+care:"他会习惯性保护别人，却不太习惯照顾自己。你会成为那个提醒他也可以被爱的人。",
+moment:"那个总是笑着安慰所有人的人，终于在你面前卸下防备。",
+ending:"温柔、悲悯、深情。是一种很容易让人产生保护欲的关系。"
+}
+
+];
+
+
+/* =========================================================
+   20道题
+========================================================= */
+
+const questions = [
+
+{
+title:"如果他第一次见你，你更希望他是什么样子？",
+options:[
+["第一眼就有很强的气场，让你忍不住注意他",[5,9,5,9,4,9]],
+["温和有礼，第一句话就让你觉得很舒服",[9,5,9,6,9,3]],
+["看起来有点冷，但明显对你和别人不太一样",[7,8,7,10,8,8]],
+["有点玩世不恭，讲话有趣，让你忍不住笑",[6,9,8,8,5,8]]
+]
+},
+
+{
+title:"你心情不好时，你最希望伴侣怎么做？",
+options:[
+["什么都不用问，直接把事情替你处理好",[8,6,7,10,7,8]],
+["安静陪着你，等你愿意说的时候再听",[10,5,10,7,10,3]],
+["逗你笑，想办法把你的情绪带出去",[7,9,9,8,5,7]],
+["抱住你，很明确地告诉你：我在这里",[9,8,9,10,7,7]]
+]
+},
+
+{
+title:"如果你们发生争执，你更希望他？",
+options:[
+["愿意先低头，把你的感受放在前面",[9,5,9,8,9,3]],
+["嘴硬归嘴硬，但最后一定会用行动解决",[7,8,8,9,6,8]],
+["愿意和你把事情讲清楚，不冷处理",[9,6,9,7,9,4]],
+["即使吵架，也会很强势地把你护在自己的范围里",[6,9,7,10,4,10]]
+]
+},
+
+{
+title:"你最容易被哪一种偏爱打动？",
+options:[
+["他对所有人都冷淡，却唯独对你温柔",[7,9,8,10,7,9]],
+["他永远记得你无意中说过的小事",[10,6,10,8,9,3]],
+["他愿意为了你一次次打破原本的计划",[7,10,7,10,5,9]],
+["他从来不说，却一直默默替你安排好退路",[9,7,9,9,10,6]]
+]
+},
+
+{
+title:"如果你突然遇到麻烦，你希望他第一反应是？",
+options:[
+["直接出现，把事情解决掉",[7,9,7,10,5,9]],
+["先确认你有没有受伤，然后耐心陪着你",[10,5,10,8,9,3]],
+["先把你逗笑，再陪你一起处理问题",[8,8,9,8,6,6]],
+["先弄清楚是谁让你受委屈，再替你出面",[6,10,7,10,4,10]]
+]
+},
+
+{
+title:"你觉得最舒服的恋爱状态是？",
+options:[
+["被一个很强的人坚定保护",[8,9,7,10,5,9]],
+["两个人安安静静过自己的日子",[10,5,10,7,10,2]],
+["每天都有新鲜感，偶尔斗嘴，偶尔甜得不行",[7,9,9,8,5,8]],
+["彼此都很独立，但关键时刻永远站在一起",[8,8,9,9,8,7]]
+]
+},
+
+{
+title:"你更容易对哪一种眼神心动？",
+options:[
+["看起来冷淡，却只在看你时变得柔软",[7,10,7,10,7,9]],
+["温柔安静，像是真的听懂了你",[10,6,10,8,9,3]],
+["带着一点笑意，像随时准备逗你",[7,9,9,8,5,7]],
+["明明克制，却藏不住很深的情绪",[8,8,8,9,10,8]]
+]
+},
+
+{
+title:"如果他工作很忙，你希望他怎样维系感情？",
+options:[
+["忙完第一时间告诉你，不让你胡思乱想",[9,6,8,9,8,3]],
+["即使很忙，也会直接抽时间见你",[8,9,8,10,5,8]],
+["不用天天联系，但需要时他一定出现",[8,6,9,8,9,4]],
+["会提前安排好时间，把你认真放进生活计划",[10,5,10,9,9,2]]
+]
+},
+
+{
+title:"你更喜欢伴侣怎样表达喜欢？",
+options:[
+["直接说喜欢，不让你猜",[7,10,8,10,4,8]],
+["通过行动慢慢让你感觉到",[9,7,10,9,9,5]],
+["嘴上嫌弃，实际处处照顾你",[7,9,9,10,6,8]],
+["不需要说太多，一个眼神你就懂",[8,8,9,8,10,6]]
+]
+},
+
+{
+title:"如果他吃醋，你更喜欢哪种反应？",
+options:[
+["明显表现出来，直接告诉你他在意",[6,10,7,10,3,9]],
+["什么都不说，但行动突然变得特别明显",[7,8,7,9,9,7]],
+["嘴硬装作不在乎，转头却一直关注你",[7,9,9,10,5,8]],
+["尊重你的自由，但会认真和你沟通",[10,6,9,7,10,2]]
+]
+},
+
+{
+title:"你希望未来的伴侣最重要的品质是什么？",
+options:[
+["有能力、有担当，遇事扛得住",[8,9,7,9,6,9]],
+["温柔、稳定、情绪成熟",[10,5,10,8,10,2]],
+["有趣、聪明，永远不会让生活无聊",[7,9,9,8,6,8]],
+["专一、坚定，一旦选择就不会轻易改变",[9,8,9,10,8,6]]
+]
+},
+
+{
+title:"如果你突然想一个人静静，你希望他？",
+options:[
+["不会逼问，但会确保你需要时能找到他",[9,6,10,8,10,2]],
+["直接坐到你旁边，什么都不说",[10,5,10,7,9,3]],
+["想办法把你逗出来，但不会强迫你",[7,9,9,8,5,7]],
+["给你空间，但会认真告诉你他一直在",[9,7,9,8,9,3]]
+]
+},
+
+{
+title:"哪一种告白最容易让你心动？",
+options:[
+["“以后所有危险，都让我站在你前面。”",[7,10,8,10,5,10]],
+["“我想和你慢慢过很多普通的日子。”",[10,6,10,8,9,2]],
+["“我本来没打算认真，后来发现是你。”",[7,10,8,9,6,9]],
+["“不用现在回答，我会一直在。”",[9,7,10,8,10,4]]
+]
+},
+
+{
+title:"如果他为了保护你受伤，你最希望看到什么？",
+options:[
+["他第一句话还是问你有没有事",[8,9,8,10,5,9]],
+["他明明很痛，却还在努力安慰你",[10,7,10,8,8,5]],
+["他笑着说没事，故意不让你担心",[7,9,9,8,6,8]],
+["他不解释，只是把你牢牢护在身后",[7,10,8,10,4,10]]
+]
+},
+
+{
+title:"你更喜欢哪一种日常？",
+options:[
+["一起处理生活里的大大小小的事情",[9,6,10,8,8,3]],
+["一起吃饭、散步、聊天，平淡但舒服",[10,5,10,8,10,2]],
+["斗嘴、玩闹、突然收到小惊喜",[7,9,9,9,5,7]],
+["各自努力，晚上见面分享今天发生的事",[8,7,9,8,8,5]]
+]
+},
+
+{
+title:"如果你遇到一个很大的决定，你希望伴侣？",
+options:[
+["给你明确的方向和支持",[8,8,7,9,7,8]],
+["认真听完你的想法，再陪你一起决定",[10,5,10,8,10,2]],
+["先替你分析利弊，再陪你做选择",[9,7,9,8,9,5]],
+["告诉你不管选择什么，他都会站你这边",[9,8,9,10,8,7]]
+]
+},
+
+{
+title:"哪一种“我爱你”最打动你？",
+options:[
+["把最好的东西都留给你",[7,9,7,10,5,8]],
+["尊重你、理解你，也尊重你的选择",[10,5,10,8,10,2]],
+["无论发生什么，都愿意陪你一起面对",[9,8,10,10,8,7]],
+["嘴上不说，但所有行动都在向你靠近",[8,8,9,9,10,6]]
+]
+},
+
+{
+title:"你最害怕恋爱里的哪件事？",
+options:[
+["对方忽冷忽热，让你没有安全感",[10,8,8,10,7,7]],
+["对方不尊重你的选择和边界",[9,6,9,6,10,3]],
+["关系变得无聊，没有心动感",[6,10,9,8,5,8]],
+["明明相爱，却没有坚定地站在彼此身边",[9,9,9,10,8,9]]
+]
+},
+
+{
+title:"如果你只能选择一种恋爱氛围，你会选？",
+options:[
+["强烈偏爱，像全世界都与你无关",[7,10,7,10,4,10]],
+["温柔陪伴，像家一样安心",[10,5,10,8,10,2]],
+["少年感和心动感一直存在",[7,10,9,9,5,8]],
+["并肩作战，彼此成为最可靠的人",[9,8,10,9,8,9]]
+]
+},
+
+{
+title:"最后，如果他站在你面前，你最希望他对你说？",
+options:[
+["“过来，我护着你。”",[7,10,8,10,4,10]],
+["“不用怕，我会一直陪着你。”",[10,6,10,9,9,3]],
+["“走吧，我们去做点开心的事。”",[7,9,9,9,5,7]],
+["“你只管做自己，剩下的交给我。”",[9,8,9,10,7,8]]
+]
+}
+
+];
+
+
+/* =========================================================
+   状态
+========================================================= */
+
+let currentQuestion = 0;
+let answers = [];
+
+
+/* =========================================================
+   密码
+========================================================= */
+
+function checkCode(){
+
+    const input =
+        document.getElementById("codeInput").value.trim();
+
+    const error =
+        document.getElementById("error");
+
+    if(input === ACCESS_CODE){
+
+        error.textContent = "";
+
+        document
+            .getElementById("lockPage")
+            .classList.add("hidden");
+
+        document
+            .getElementById("homePage")
+            .classList.remove("hidden");
+
+        window.scrollTo(0,0);
+
+    }else{
+
+        error.textContent =
+            "提取码不正确，请重新输入。";
+
+        document
+            .getElementById("codeInput")
+            .value = "";
+
+    }
+}
+
+
+/* 回车进入 */
+
+document
+    .getElementById("codeInput")
+    .addEventListener("keydown",function(e){
+
+        if(e.key === "Enter"){
+            checkCode();
+        }
+
+    });
+
+
+/* =========================================================
+   开始测试
+========================================================= */
+
+function startTest(){
+
+    currentQuestion = 0;
+    answers = [];
+
+    document
+        .getElementById("homePage")
+        .classList.add("hidden");
+
+    document
+        .getElementById("resultPage")
+        .classList.add("hidden");
+
+    document
+        .getElementById("quizPage")
+        .classList.remove("hidden");
+
+    renderQuestion();
+
+    window.scrollTo({
+        top:0,
+        behavior:"instant"
+    });
+}
+
+
+/* =========================================================
+   渲染题目
+========================================================= */
+
+function renderQuestion(){
+
+    const q = questions[currentQuestion];
+
+    const number =
+        String(currentQuestion + 1).padStart(2,"0");
+
+    document
+        .getElementById("progressText")
+        .textContent =
+        number + " / " + questions.length;
+
+    document
+        .getElementById("questionLabel")
+        .textContent =
+        "QUESTION " + number;
+
+    document
+        .getElementById("questionTitle")
+        .textContent =
+        q.title;
+
+    const progress =
+        ((currentQuestion) / questions.length) * 100;
+
+    document
+        .getElementById("progressBar")
+        .style.width =
+        progress + "%";
+
+    const options =
+        document.getElementById("options");
+
+    options.innerHTML = "";
+
+    q.options.forEach((option,index)=>{
+
+        const button =
+            document.createElement("button");
+
+        button.className = "option";
+
+        button.innerHTML = `
+            <span class="option-letter">
+                ${String.fromCharCode(65 + index)}
+            </span>
+            <span class="option-text">
+                ${option[0]}
+            </span>
+        `;
+
+        button.onclick = function(){
+
+            selectOption(index,button);
+
+        };
+
+        options.appendChild(button);
+
+    });
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+
+/* =========================================================
+   选择
+========================================================= */
+
+function selectOption(index,button){
+
+    const all =
+        document.querySelectorAll(".option");
+
+    all.forEach(el=>{
+        el.classList.remove("selected");
+    });
+
+    button.classList.add("selected");
+
+    answers[currentQuestion] = index;
+
+    setTimeout(()=>{
+
+        if(currentQuestion < questions.length - 1){
+
+            currentQuestion++;
+
+            renderQuestion();
+
+        }else{
+
+            calculateResult();
+
+        }
+
+    },180);
+}
+
+
+/* =========================================================
+   核心匹配算法
+========================================================= */
+
+function calculateResult(){
+
+    let scores = new Array(characters.length).fill(0);
+
+    let preference =
+        new Array(DIMENSIONS).fill(0);
+
+
+    /* 汇总用户六维偏好 */
+
+    answers.forEach((answer,qIndex)=>{
+
+        const vector =
+            questions[qIndex].options[answer][1];
+
+        for(let d=0;d<DIMENSIONS;d++){
+
+            preference[d] += vector[d];
+
+        }
+
+    });
+
+
+    /* 标准化用户偏好 */
+
+    const prefMax =
+        Math.max(...preference);
+
+    const prefMin =
+        Math.min(...preference);
+
+    let normalized =
+        preference.map(v=>{
+
+            return (
+                (v - prefMin) /
+                ((prefMax - prefMin) || 1)
+            );
+
+        });
+
+
+    /* 人物匹配 */
+
+    characters.forEach((character,i)=>{
+
+        let score = 0;
+
+        for(let d=0;d<DIMENSIONS;d++){
+
+            const userValue =
+                normalized[d];
+
+            const charValue =
+                character.vector[d] / 10;
+
+            const diff =
+                Math.abs(userValue - charValue);
+
+            score +=
+                (1 - diff) *
+                (1.35 + d * 0.06);
+
+        }
+
+
+        /* 选择组合奖励 */
+
+        answers.forEach((answer,qIndex)=>{
+
+            const vector =
+                questions[qIndex].options[answer][1];
+
+            const char =
+                character.vector;
+
+            let similarity = 0;
+
+            for(let d=0;d<DIMENSIONS;d++){
+
+                similarity +=
+                    10 -
+                    Math.abs(
+                        vector[d] -
+                        char[d]
+                    );
+
+            }
+
+            score +=
+                similarity * 0.045;
+
+        });
+
+
+        /* 人物独立偏好 */
+
+        let pathValue = 0;
+
+        answers.forEach((answer,qIndex)=>{
+
+            const n =
+                (qIndex + 3) *
+                (answer + 2) *
+                (i + 5);
+
+            pathValue +=
+                Math.sin(n) *
+                0.75;
+
+        });
+
+        score += pathValue;
+
+
+        /* 特定答案组合奖励 */
+
+        const a =
+            answers.filter(x=>x !== undefined);
+
+        const countA =
+            a.filter(x=>x === 0).length;
+
+        const countB =
+            a.filter(x=>x === 1).length;
+
+        const countC =
+            a.filter(x=>x === 2).length;
+
+        const countD =
+            a.filter(x=>x === 3).length;
+
+
+        const styleBonus =
+            character.vector[0] * countB * 0.012 +
+            character.vector[1] * countA * 0.012 +
+            character.vector[2] * countC * 0.012 +
+            character.vector[3] * countD * 0.012;
+
+        score += styleBonus;
+
+        scores[i] = score;
+
+    });
+
+
+    /* 排序 */
+
+    let ranking =
+        characters.map((character,index)=>{
+
+            return {
+                character,
+                score:scores[index],
+                index
+            };
+
+        }).sort((a,b)=>b.score-a.score);
+
+
+    const winner =
+        ranking[0].character;
+
+
+    showResult(
+        winner,
+        preference
+    );
+}
+
+
+/* =========================================================
+   结果
+========================================================= */
+
+function showResult(character,preference){
+
+    document
+        .getElementById("quizPage")
+        .classList.add("hidden");
+
+    document
+        .getElementById("resultPage")
+        .classList.remove("hidden");
+
+
+    const root =
+        document.documentElement;
+
+
+    const accent =
+        character.color;
+
+
+    root.style.setProperty(
+        "--accent",
+        accent
+    );
+
+    root.style.setProperty(
+        "--border",
+        hexToRgba(accent,.35)
+    );
+
+    root.style.setProperty(
+        "--soft",
+        hexToRgba(accent,.10)
+    );
+
+    root.style.setProperty(
+        "--glow",
+        hexToRgba(accent,.13)
+    );
+
+
+    document
+        .getElementById("resultName")
+        .textContent =
+        character.name;
+
+
+    document
+        .getElementById("resultSource")
+        .textContent =
+        character.source;
+
+
+    document
+        .getElementById("resultQuote")
+        .textContent =
+        character.quote;
+
+
+    document
+        .getElementById("resultWhy")
+        .textContent =
+        character.why;
+
+
+    document
+        .getElementById("resultLove")
+        .textContent =
+        character.love;
+
+
+    document
+        .getElementById("resultCare")
+        .textContent =
+        character.care;
+
+
+    document
+        .getElementById("resultMoment")
+        .textContent =
+        character.moment;
+
+
+    document
+        .getElementById("resultEnding")
+        .textContent =
+        character.ending;
+
+
+    const tags =
+        document.getElementById("resultTags");
+
+    tags.innerHTML = "";
+
+    character.tags.forEach(tag=>{
+
+        const el =
+            document.createElement("span");
+
+        el.className = "tag";
+
+        el.textContent = tag;
+
+        tags.appendChild(el);
+
+    });
+
+
+    /* 四维展示 */
+
+    const max =
+        Math.max(...preference);
+
+    const min =
+        Math.min(...preference);
+
+    const values =
+        preference.map(v=>{
+
+            return Math.round(
+                55 +
+                (
+                    (v-min) /
+                    ((max-min)||1)
+                ) * 40
+            );
+
+        });
+
+
+    setTimeout(()=>{
+
+        document
+            .getElementById("bar1")
+            .style.width =
+            values[0] + "%";
+
+        document
+            .getElementById("bar2")
+            .style.width =
+            values[1] + "%";
+
+        document
+            .getElementById("bar3")
+            .style.width =
+            values[2] + "%";
+
+        document
+            .getElementById("bar4")
+            .style.width =
+            values[3] + "%";
+
+    },180);
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"instant"
+    });
+}
+
+
+/* =========================================================
+   HEX转RGBA
+========================================================= */
+
+function hexToRgba(hex,alpha){
+
+    let h =
+        hex.replace("#","");
+
+    if(h.length === 3){
+
+        h =
+            h[0]+h[0]+
+            h[1]+h[1]+
+            h[2]+h[2];
+
+    }
+
+    const r =
+        parseInt(h.substring(0,2),16);
+
+    const g =
+        parseInt(h.substring(2,4),16);
+
+    const b =
+        parseInt(h.substring(4,6),16);
+
+    return `rgba(${r},${g},${b},${alpha})`;
+}
+
+
+/* =========================================================
+   重新测试
+========================================================= */
+
+function restartTest(){
+
+    currentQuestion = 0;
+    answers = [];
+
+    document
+        .getElementById("resultPage")
+        .classList.add("hidden");
+
+    document
+        .getElementById("quizPage")
+        .classList.add("hidden");
+
+    document
+        .getElementById("homePage")
+        .classList.remove("hidden");
+
+    window.scrollTo({
+        top:0,
+        behavior:"instant"
+    });
+}
+
+</script>
+</body>
+</html>
+
+
+
